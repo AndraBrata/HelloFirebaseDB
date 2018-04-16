@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2018. This Code is created and writed by Komang Candra Brata.
+ * Copyright (c) 2018. This Code is created and writed by Komang Candra Brata (k.candra.brata@ub.ac.id).
  * Inform the writer if you willing to edit or modify it for commercial purpose.
  */
 

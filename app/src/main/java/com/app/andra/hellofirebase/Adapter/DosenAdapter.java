@@ -107,16 +107,7 @@ public class DosenAdapter extends RecyclerView.Adapter<DosenAdapter.CustomViewHo
         holder.cv.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View view) {
-
-
-                Intent intent = new Intent(context, MatkulActivity.class);
-
-                //putting artist name and id to intent
-                intent.putExtra(DOSEN_ID, dosen.get(position).getNip());
-                intent.putExtra(DOSEN_NAME, dosen.get(position).getName());
-
-                //starting the activity with intent
-                context.startActivity(intent);
+        // do something here !!
                 return false;
             }
         });

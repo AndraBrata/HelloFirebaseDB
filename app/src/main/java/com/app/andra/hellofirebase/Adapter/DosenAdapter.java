@@ -116,7 +116,7 @@ public class DosenAdapter extends RecyclerView.Adapter<DosenAdapter.CustomViewHo
 
 
     private void updateitem(DosenModel dosen) {
-        //getting the specified artist reference
+        //getting the specified dosen reference
 
         DatabaseReference dR = FirebaseDatabase.getInstance().getReference("dosen").child(dosen.getNip());
 
@@ -130,17 +130,13 @@ public class DosenAdapter extends RecyclerView.Adapter<DosenAdapter.CustomViewHo
 
 
     private void deleteitem(String id) {
-        //getting the specified artist reference
+        //getting the specified dosen reference
         DatabaseReference dR = FirebaseDatabase.getInstance().getReference("dosen").child(id);
 
         //removing data
         dR.removeValue();
 
-        //getting the tracks reference for the specified artist
-        //  DatabaseReference drTracks = FirebaseDatabase.getInstance().getReference("tracks").child(id);
-
-        //removing all tracks
-        //  drTracks.removeValue();
+    
         Toast.makeText(context, "Dosen deleted", Toast.LENGTH_SHORT).show();
 
     }

@@ -42,8 +42,7 @@ public class ProfileActivity extends AppCompatActivity {
     private EditText  editNip,editNama;
     private RecyclerView recyclerView;
 
-    public static final String DOSEN_NAME = "com.app.andra.hellofirebase.name";
-    public static final String DOSEN_ID = "com.app.andra.hellofirebase.nip";
+
     private DosenAdapter dosenAdapter;
     private ArrayList<DosenModel> dosenList = new ArrayList<DosenModel>();
 
@@ -57,7 +56,7 @@ public class ProfileActivity extends AppCompatActivity {
         //initializing firebase authentication object
         firebaseAuth = FirebaseAuth.getInstance();
 
-        //getting the reference of artists node
+        //getting the reference of Dosen node
         databaseDosen = FirebaseDatabase.getInstance().getReference("dosen");
 
         //if the user is not logged in
@@ -121,14 +120,14 @@ public class ProfileActivity extends AppCompatActivity {
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                     //getting dosen
                     DosenModel dosen = postSnapshot.getValue(DosenModel.class);
-                    //adding artist to the list
+                    //adding dosen to the list
                     dosenList.add(dosen);
                 }
 
                 //creating adapter
                 dosenAdapter.addItem(dosenList);
 
-                //attaching adapter to the listview
+                //attaching adapter to the recyclerview
                 recyclerView.setAdapter(dosenAdapter);
             }
 
@@ -149,13 +148,13 @@ public class ProfileActivity extends AppCompatActivity {
         if (!TextUtils.isEmpty(name)&&!TextUtils.isEmpty(nip)) {
 
             //getting a unique id using push().getKey() method
-            //it will create a unique id and we will use it as the Primary Key for our Artist
-            //String id = databaseArtists.push().getKey();
+            //it will create a unique id and we will use it as the Primary Key for our Dosen
+            //String id = databaseDosen.push().getKey();
 
-            //creating an Artist Object
+            //creating an dosen Object
             DosenModel dosen = new DosenModel(nip, name);
 
-            //Saving the Artist
+            //Saving the Dosen
             databaseDosen.child(nip).setValue(dosen);
 
             //setting edittext to blank again
